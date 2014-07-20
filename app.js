@@ -1,7 +1,7 @@
 // web.js
 var express = require("express");
 var logfmt = require("logfmt");
-var route = require("./controllers/route.js");
+var route = require("./route.js");
 var ECT = require('ect');
 var app = express();
 var ECT = require('ect');
@@ -10,21 +10,38 @@ var ECT = require('ect');
 app.engine('ect', ECT({ watch: true, root: __dirname + '/views', ext: '.ect' }).render);
 app.set('view engine', 'ect');
 
+// page controlloer
+var paths = ["/", "/login", "/timeline"];
+var postApis = ["post"];
+var getApis = [];
+
 app.configure(function(){
     app.set('port', process.env.PORT || 3000);
     app.use(logfmt.requestLogger());
     app.engine('ect', ECT({ watch: true, root: __dirname + '/views', ext: '.ect' }).render);
     app.set('view engine', 'ect');
+    app.use(express.bodyDecoder());
 });
 
 app.configure('development', function(){
   app.use(express.errorHandler());
 });
 
-// allowed path setting
-var path = ["/", "/login", "/timeline"]
-for (var i = 0; i < path.length; i++){
-    app.get(path[i], route.index);
+// set route for page controller
+for (var i = 0; i < paths.length; i++){
+    app.get(paths[i], route.index);
+}
+
+// set route post api services
+for (var i = 0; i < postApis.length; i++){
+    path = "/service/" + postApis[i]
+    app.post(path, route.service);
+}
+
+// set route get api services
+for (var i = 0; i < getApis.length; i++){
+    path = "/service/" + getApis[i]
+    app.get(path, route.service);
 }
 
 app.listen(app.get('port'), function() {
