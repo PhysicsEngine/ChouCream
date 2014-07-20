@@ -1,5 +1,8 @@
+var User = require("../../models/db/User.js");
+
 function action(req, res){
-    res.send("ChouCream has some unko cream"); 
+    var user = new User(req.user.name);
+    user.post(req.body.content);
 }
 
 exports.action = action;
