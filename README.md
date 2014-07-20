@@ -8,6 +8,7 @@ If you want to create production version, please look into [here](https://devcen
 ## How to use
 
     $ git clone git@github.com:PhysicsEngine/ChouCream.git
+    $ cd ChouCream
     $ ./bake.sh
 
 That's all!!
