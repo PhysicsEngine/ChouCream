@@ -22,7 +22,7 @@
             </div>
             <div id="text-form">
             <form action="./service/post" method="post">
-            <input type="text" class="form-control" placeholder="Eat Choucream">
+            <input type="text" name="content" class="form-control" placeholder="Eat Choucream">
             <input type="submit" value="submit">
             </form>
             </div>
@@ -30,7 +30,7 @@
         <div class="col-xs-8 timeline">
             <div>
             <% for tl in @timeline : %>
-                <p><%- tl.username %>: <%- tl.content %></p>
+                <p><%= tl.username %>: <%= tl.content %></p>
             <% end %>
             </div>
         </div>
