@@ -1,5 +1,4 @@
 var TwitterStrategy = require('passport-twitter').Strategy;
-var choucreamConfig = require('../choucream.config');
 exports.initialize = function(config) {
     return new TwitterStrategy({
             consumerKey: config.service.Twitter.CONSUME_KEY,
