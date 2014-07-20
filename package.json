@@ -5,7 +5,8 @@
   "private": true,
   "dependencies": {
     "express": "3.x",
-    "logfmt": "^1.1.2"
+    "logfmt": "^1.1.2",
+    "jasmine-node": "^1.14.5"
   },
   "engines": {
     "node": "0.10.x"
