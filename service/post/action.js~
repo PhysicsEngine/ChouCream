@@ -1,6 +1,0 @@
-function action(req, res){
-    console.log("action start")
-    res.send("ChouCream has some unko cream"); 
-}
-
-exports.action = action;
