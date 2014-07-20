@@ -5,7 +5,7 @@ exports.initialize = function(config) {
             realm: config.url
         },
         function(identifier, profile, done) {
-            process.netTick(function() {
+            process.nextTick(function() {
                 user = {
                     id : identifier,
                     name : profile.emails[0].value,

@@ -9,8 +9,8 @@
         },
         "Google" : {
             "id" : "google",
-            "callbackURL" : "auth/google/return",
-            "loginURL" : "auth/google"
+            "callbackURL" : "/auth/google/return",
+            "loginURL" : "/auth/google"
         }
     },
     "url" : "http://localhost:3000",
