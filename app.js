@@ -4,6 +4,11 @@ var logfmt = require("logfmt");
 var route = require("./controllers/route.js");
 var ECT = require('ect');
 var app = express();
+var ECT = require('ect');
+
+//ECT env
+app.engine('ect', ECT({ watch: true, root: __dirname + '/views', ext: '.ect' }).render);
+app.set('view engine', 'ect');
 
 app.configure(function(){
     app.set('port', process.env.PORT || 3000);
