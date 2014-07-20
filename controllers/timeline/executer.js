@@ -7,7 +7,7 @@ function execute(req, res){
         if(error){
             res.send("ChouCream has some unko cream"); 
         }
-        res.render('timeline', {timeline:timeline});
+        res.render('timeline', {timeline:timeline, userInfo:req.user});
     });
 }
 
