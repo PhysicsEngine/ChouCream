@@ -17,11 +17,11 @@ function User(username) {
     self.name = username;
 }
 
-User.prototype.post = function(content, callback) {
+User.prototype.post = function(content, icon_url, callback) {
     var self = this;
 
     function postAction(collection, closeCb) {
-        collection.insert({userid: self._id, username: self.name, icon_url: self.icon_url, content: content}, function(err, results) {
+        collection.insert({userid: self._id, username: self.name, icon_url: icon_url, content: content}, function(err, results) {
             closeCb(err, results);
         });
     }
