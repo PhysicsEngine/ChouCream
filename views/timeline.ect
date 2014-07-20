@@ -22,9 +22,9 @@
                 <p><img src="<%- @userInfo.icon %>"> <%- @userInfo.name %></p>
             </div>
             <div id="text-form">
-            <form action="./service/post" method="post">
+            <form action="./service/post" method="post" id="content-post">
             <input type="text" name="content" id="content" class="form-control" placeholder="Eat Choucream" autocomplete="off">
-            <input type="submit" value="submit">
+            <input type="submit" value="submit" id="submit_btn">
             </form>
             </div>
         </div>
