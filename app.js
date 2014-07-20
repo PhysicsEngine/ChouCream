@@ -14,7 +14,15 @@ app.get('/', function(req, res) {
     res.send('This is ChouCream and supervisor test');
 });
 app.get('/ect', function(req,res){ res.render('index',{ 
-    title: 'ect test title'
+    title: 'ect test title',
+    user: 'ChouCreaman',
+    timeline: [
+        {user: 1, say:'test1'},
+        {user: 2, say:'test2'},
+        {user: 3, say:'test3'},
+        {user: 2, say:'test4'},
+        {user: 1, say:'test5'}
+    ]
     });
 });
 

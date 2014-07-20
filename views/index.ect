@@ -1,11 +1,30 @@
 <%extend 'layout.ect'%>
 
-<% block 'header': %>
-<div class="navbar navbar-default navbar-fixed-top"><div>
+<% block 'scripts': %>
 <% end %>
+
+<% block 'header': %>
+<div class="navbar navbar-default">
+    
+<div>
+<% end %>
+
 <% block 'footer': %>
 <% end %>
-<div class="row">
-    <div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-3 dashboard">
+            <div>
+                <p>user: ChouCreaman</p>
+            </div>
+        </div>
+        <div class="col-xs-8 timeline">
+            <div>
+            <% for tl in @timeline : %>
+                <p><%- tl.user %>: <%- tl.say %></p>
+            <% end %>
+            </div>
+        </div>
+    </div>
 </div>
-<p>ECT test</p>
