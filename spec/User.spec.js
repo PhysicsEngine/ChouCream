@@ -11,6 +11,7 @@ describe("User model test", function() {
         user.token = "123456789";
         user.icon_url = "http://example.com";
         user.save(function(err, results) {
+            expect(results).not.toBe(null);
             done();
         });
     });
@@ -31,6 +32,16 @@ describe("User model test", function() {
         user.fetch(function(err, results) {
             expect(user.token).toBe("123456789");
             done();
+        });
+    });
+
+    it("should post text content into MongoHQ instance", function(done) {
+        var user = new User("kaisasak");
+        user.fetch(function(err, results) {
+            user.post("Helo, I am Kai", function(err, results) {
+                expect(results).not.toBe(null);
+                done();
+            });
         });
     });
 });

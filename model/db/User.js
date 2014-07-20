@@ -1,6 +1,7 @@
 var MongoClient = require('mongodb').MongoClient;
 var format = require('util').format;
 var MONGOHQ_URL = process.env['MONGOHQ_URL'];
+var ModelUtil = require('./ModelUtil.js');
 
 
 /**
@@ -8,13 +9,28 @@ var MONGOHQ_URL = process.env['MONGOHQ_URL'];
  *
  *  @param username
  *  @param token
- *  @param icon_url 
+ *  @param icon_url
  *  @param callback
  */
 function User(username) {
     var self = this;
     self.name = username;
 }
+
+User.prototype.post = function(content, callback) {
+    var self = this;
+
+    function postAction(collection, closeCb) {
+        collection.insert({userid: self._id, username: self.name, content: content}, function(err, results) {
+            closeCb(err, results);
+        });
+    }
+
+    ModelUtil.doAction("public_tl", postAction, function(err, results) {
+        callback(err, results);
+    });
+}
+
 /**
  *  Fetch data from MongoHQ instance
  *
@@ -28,14 +44,14 @@ User.prototype.fetch = function(callback) {
         });
     }
 
-    self.connect(selectAction, function(err, results) {
+    ModelUtil.doAction("users", selectAction, function(err, results) {
         if (! results.length == 1) {
-            console.log("There is mode than one record");
             throw err;
         }
+        self._id = results[0]._id;
         self.token = results[0].token;
         self.icon_url = results[0].icon_url;
-        callback(err, results[1]);
+        callback(err, results[0]);
     });
 }
 
@@ -56,7 +72,7 @@ User.prototype.save = function(callback) {
         });
     }
 
-    self.connect(insertAction, callback);
+    ModelUtil.doAction('users', insertAction, callback);
 }
 
 /**
@@ -74,7 +90,7 @@ User.prototype.remove = function(callback) {
         });
     }
 
-    self.connect(removeAction, callback);
+    ModelUtil.doAction('users', removeAction, callback);
 }
 
 
