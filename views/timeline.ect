@@ -1,6 +1,7 @@
 <%extend 'layout.ect'%>
 
 <% block 'scripts': %>
+<script src="js/main.js"></script>
 <% end %>
 
 <% block 'header': %>
@@ -18,19 +19,19 @@
     <div class="row">
         <div class="col-xs-3 dashboard">
             <div>
-                <p>user: ChouCreaman</p>
+                <p><img src="<%- @userInfo.icon %>"> <%- @userInfo.name %></p>
             </div>
             <div id="text-form">
-            <form action="./service/post" method="post">
-            <input type="text" class="form-control" placeholder="Eat Choucream">
-            <input type="submit" value="submit">
+            <form action="./service/post" method="post" id="content-post">
+            <input type="text" name="content" id="content" class="form-control" placeholder="Eat Choucream" autocomplete="off">
+            <input type="submit" value="submit" id="submit_btn">
             </form>
             </div>
         </div>
         <div class="col-xs-8 timeline">
             <div>
             <% for tl in @timeline : %>
-                <p><%- tl.username %>: <%- tl.content %></p>
+                <p><%= tl.username %>: <%= tl.content %></p>
             <% end %>
             </div>
         </div>
