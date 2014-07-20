@@ -14,14 +14,19 @@ def build():
     subprocess.call(["heroku", "addons:add", "mongohq"])
     ret = subprocess.check_output(["heroku", "info"])
     heroku_config = ret.split("\n")
+    print(heroku_config)
 
     config = {}
     config["GIT_URL"] = heroku_config[2].split()[2]
     #config["REPO_SIZE"] = heroku_config[5].split()[2]
-    config["WEB_URL"] = heroku_config[8].split()[2]
+    config["WEB_URL"] = heroku_config[6].split()[2]
 
     with open("choucream.config", "w") as f:
         f.write(json.dumps(config, sort_keys=True, indent=4))
+
+	subprocess.call(["heroku", "config:set", "WEB_URL", config["WEB_URL"]])
+
+	subprocess.call(["git", "push", "heroku", "master"])
     
     
 
