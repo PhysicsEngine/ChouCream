@@ -1,15 +1,24 @@
 // web.js
 var express = require("express");
 var logfmt = require("logfmt");
+var route = require("./controllers/route.js");
 var app = express();
 
-app.use(logfmt.requestLogger());
+var path = ["/", "/login", "/timeline"]
 
-app.get('/', function(req, res) {
-    res.send('This is ChouCream');
+app.configure(function(){
+    app.set('port', process.env.PORT || 3000);
+    app.use(logfmt.requestLogger());
 });
 
-var port = Number(process.env.PORT || 5000);
-app.listen(port, function() {
-    console.log("Listening on " + port);
+app.configure('development', function(){
+  app.use(express.errorHandler());
+});
+
+for (var i = 0; i < path.length; i++){
+    app.get(path[i], route.index);
+}
+
+app.listen(app.get('port'), function() {
+    console.log("Listening on " + app.get('port'));
 });
