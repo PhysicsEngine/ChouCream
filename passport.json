@@ -2,15 +2,15 @@
     "service" : {
         "Twitter" : {
             "id" : "twitter",
-            "callbackURL" : "/auth/twitter/callback",
-            "loginURL" : "/auth/twitter",
+            "callbackURL" : "auth/twitter/callback",
+            "loginURL" : "auth/twitter",
             "CONSUME_KEY" : "7miSoefgDpTsV6LhIUC21tpUe",
             "CONSUME_SECRET" : "2hXJaiJplVQMWkToauflqM6ghVrjbSivV0m8o18K7O7NcozkUW"
         },
         "Google" : {
             "id" : "google",
-            "callbackURL" : "/auth/google/return",
-            "loginURL" : "/auth/google"
+            "callbackURL" : "auth/google/return",
+            "loginURL" : "auth/google"
         }
     },
     "url" : "http://localhost:3000",
