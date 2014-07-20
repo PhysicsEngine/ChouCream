@@ -1,11 +1,11 @@
 function index(req, res){
     if(req.url == "/"){
-        path = "./login";
+        path = "./timeline";
     }
     else{
         path = "./" + req.url;
     }
-    controller = require(path + "/executer.js");
+    var controller = require(path + "/executer.js");
     controller.execute(req, res);
 }
 

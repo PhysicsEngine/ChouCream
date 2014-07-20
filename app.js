@@ -4,7 +4,7 @@ var logfmt = require("logfmt");
 var route = require("./controllers/route.js");
 var app = express();
 
-var path = ["/", "/login"]
+var path = ["/", "/login", "/timeline"]
 
 app.configure(function(){
     app.set('port', process.env.PORT || 3000);
