@@ -20,7 +20,7 @@ app.configure(function(){
     app.use(logfmt.requestLogger());
     app.engine('ect', ECT({ watch: true, root: __dirname + '/views', ext: '.ect' }).render);
     app.set('view engine', 'ect');
-    app.use(express.bodyDecoder());
+    app.use(express.bodyParser());
 });
 
 app.configure('development', function(){
