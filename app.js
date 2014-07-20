@@ -17,11 +17,11 @@ app.get('/ect', function(req,res){ res.render('index',{
     title: 'ect test title',
     user: 'ChouCreaman',
     timeline: [
-        {user: 1, say:'test1'},
-        {user: 2, say:'test2'},
-        {user: 3, say:'test3'},
-        {user: 2, say:'test4'},
-        {user: 1, say:'test5'}
+        {username: 1, content:'test1'},
+        {username: 2, content:'test2'},
+        {username: 3, content:'test3'},
+        {username: 2, content:'test4'},
+        {username: 1, content:'test5'}
     ]
     });
 });

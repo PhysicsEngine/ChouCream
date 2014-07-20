@@ -5,7 +5,9 @@
 
 <% block 'header': %>
 <div class="navbar navbar-default">
-    
+    <div class="container">
+        <div class="navbar-brand" href="#">ChouCream</div> 
+    <div>
 <div>
 <% end %>
 
@@ -18,11 +20,17 @@
             <div>
                 <p>user: ChouCreaman</p>
             </div>
+            <div id="text-form">
+            <form action="" method="post">
+            <input type="text" class="form-control" placeholder="Eat Choucream">
+            <input type="submit" value="submit">
+            </form>
+            </div>
         </div>
         <div class="col-xs-8 timeline">
             <div>
             <% for tl in @timeline : %>
-                <p><%- tl.user %>: <%- tl.say %></p>
+                <p><%- tl.username %>: <%- tl.content %></p>
             <% end %>
             </div>
         </div>
