@@ -38,7 +38,7 @@ describe("User model test", function() {
     it("should post text content into MongoHQ instance", function(done) {
         var user = new User("kaisasak");
         user.fetch(function(err, results) {
-            user.post("Helo, I am Kai", function(err, results) {
+            user.post("Hi, Takahshi. I'm Kai.", function(err, results) {
                 expect(results).not.toBe(null);
                 done();
             });

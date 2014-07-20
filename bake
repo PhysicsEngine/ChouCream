@@ -9,6 +9,9 @@ heroku create
 ## Enable mongohq addon
 heroku addons:add mongohq
 
+## Generate config file
+heroku info > ./heroku.config
+
 ## Deploy 
 git push heroku master
 
