@@ -8,6 +8,7 @@
     "express": "3.x",
     "jasmine-node": "^1.14.5",
     "logfmt": "^1.1.2",
+    "jasmine-node": "^1.14.5",
     "mongodb": "^1.4.7"
   },
   "engines": {
