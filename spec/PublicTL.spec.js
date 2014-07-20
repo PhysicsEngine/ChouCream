@@ -1,4 +1,4 @@
-var PublicTL = require("../model/db/PublicTL.js");
+var PublicTL = require("../models/db/PublicTL.js");
 
 describe("PublicTL model test", function() {
     it("should create user model instance", function() {

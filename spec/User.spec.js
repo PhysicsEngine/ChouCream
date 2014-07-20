@@ -1,4 +1,4 @@
-var User = require("../model/db/User.js");
+var User = require("../models/db/User.js");
 
 describe("User model test", function() {
     it("should create user model instance", function() {
