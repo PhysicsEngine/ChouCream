@@ -1,6 +1,7 @@
 <%extend 'layout.ect'%>
 
 <% block 'scripts': %>
+<script src="js/main.js"></script>
 <% end %>
 
 <% block 'header': %>
@@ -22,7 +23,7 @@
             </div>
             <div id="text-form">
             <form action="./service/post" method="post">
-            <input type="text" name="content" class="form-control" placeholder="Eat Choucream">
+            <input type="text" name="content" id="content" class="form-control" placeholder="Eat Choucream" autocomplete="off">
             <input type="submit" value="submit">
             </form>
             </div>
