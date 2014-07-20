@@ -4,6 +4,7 @@
   "version": "0.0.1",
   "private": true,
   "dependencies": {
+    "ect": "^0.5.9",
     "express": "3.x",
     "logfmt": "^1.1.2"
   },

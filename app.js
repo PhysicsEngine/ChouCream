@@ -1,7 +1,7 @@
 // web.js
 var express = require("express");
 var logfmt = require("logfmt");
-var route = require("./controller/route.js");
+var route = require("./controllers/route.js");
 var app = express();
 
 var path = ["/", "/login"]
