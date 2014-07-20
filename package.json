@@ -4,9 +4,17 @@
   "version": "0.0.1",
   "private": true,
   "dependencies": {
-    "express": "3.x",
+    "ect": "^0.5.9",
     "passport": "0.2.0",
     "passport-google": "0.3.0"
     "passport-twitter": "1.0.2"
-}
+    "express": "3.x",
+    "jasmine-node": "^1.14.5",
+    "logfmt": "^1.1.2",
+    "jasmine-node": "^1.14.5",
+    "mongodb": "^1.4.7"
+  },
+  "engines": {
+    "node": "0.10.x"
+  }
 }
