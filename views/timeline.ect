@@ -1,7 +1,8 @@
 <%extend 'layout.ect'%>
 
 <% block 'scripts': %>
-<script src="js/main.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/main.js"></script>
 <% end %>
 
 <% block 'header': %>
@@ -19,17 +20,17 @@
     <div class="row">
         <div class="col-xs-3 dashboard">
             <div>
-                <p><img src="<%- @userInfo.icon %>"> <%- @userInfo.name %></p>
+                <p><img id="usericon" src="<%- @userInfo.icon %>"> <span id="username"><%- @userInfo.name %></span></p>
             </div>
             <div id="text-form">
-            <form action="./service/post" method="post" id="content-post">
+            <form action="" id="content-post">
             <input type="text" name="content" id="content" class="form-control" placeholder="Eat Choucream" autocomplete="off">
-            <input type="submit" value="submit" id="submit_btn">
+            <button>Send</button>
             </form>
             </div>
         </div>
         <div class="col-xs-8 timeline">
-            <div>
+            <div id="tl-contents">
             <% for tl in @timeline : %>
                 <p><%= tl.username %>: <%= tl.content %></p>
             <% end %>

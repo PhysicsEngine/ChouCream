@@ -1,12 +1,17 @@
 $(function() {
     var socket = io();
     $('#content-post').submit(function(){
-        socket.emit('post', $('#content').val());
+        socket.emit('post', {
+            username: $("#username").text(), 
+            content: $('#content').val(),
+            icon_url: $('#usericon').attr('src') ,
+        });
         $('#content').val('');
         return false;
     });
 
     socket.on('post', function(msg){
+        $('#tl-contents').prepend('<p>' + msg.username + ': ' + msg.content +'</p>');
         //$('#messages').append($('<li>').text(msg));
     });
 

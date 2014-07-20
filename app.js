@@ -58,10 +58,11 @@ for (var i = 0; i < getApis.length; i++){
 
 // web socket
 io.on('connection', function(socket){
+    console.log("Connected");
     socket.on('post', function(post){
-        var User = require("../../models/db/User.js");
-        var user = new User(post.name);
-        user.post(post.content, function(err, results){
+        var User = require("./models/db/User.js");
+        var user = new User(post.username);
+        user.post(post.content, post.icon_url, function(err, results){
             if(err){
                 throw err;
             }
@@ -73,6 +74,6 @@ io.on('connection', function(socket){
 });
     
 
-app.listen(app.get('port'), function() {
+http.listen(app.get('port'), function() {
     console.log("Listening on " + app.get('port'));
 });
