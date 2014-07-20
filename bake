@@ -17,7 +17,7 @@ def build():
 
     config = {}
     config["GIT_URL"] = heroku_config[2].split()[2]
-    config["REPO_SIZE"] = heroku_config[5].split()[2]
+    #config["REPO_SIZE"] = heroku_config[5].split()[2]
     config["WEB_URL"] = heroku_config[8].split()[2]
 
     with open("choucream.config", "w") as f:
