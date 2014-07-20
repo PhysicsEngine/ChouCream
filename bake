@@ -24,7 +24,7 @@ def build():
     with open("choucream.config", "w") as f:
         f.write(json.dumps(config, sort_keys=True, indent=4))
 
-	subprocess.call(["heroku", "config:set", "WEB_URL", config["WEB_URL"]])
+	subprocess.call(["heroku", "config:set", "WEB_URL=" + config["WEB_URL"]])
 
 	subprocess.call(["git", "push", "heroku", "master"])
     
