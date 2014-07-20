@@ -5,6 +5,8 @@ var route = require("./route.js");
 var ECT = require('ect');
 var app = express();
 var ECT = require('ect');
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
 
 //ECT env
 app.engine('ect', ECT({ watch: true, root: __dirname + '/views', ext: '.ect' }).render);
@@ -34,15 +36,33 @@ for (var i = 0; i < paths.length; i++){
 
 // set route post api services
 for (var i = 0; i < postApis.length; i++){
-    path = "/service/" + postApis[i]
+    path = "/service/" + postApis[i];
     app.post(path, route.service);
 }
 
 // set route get api services
 for (var i = 0; i < getApis.length; i++){
-    path = "/service/" + getApis[i]
+    path = "/service/" + getApis[i];
     app.get(path, route.service);
 }
+
+
+// web socket
+io.on('connection', function(socket){
+    socket.on('post', function(post){
+        var User = require("../../models/db/User.js");
+        var user = new User(post.name);
+        user.post(post.content, function(err, results){
+            if(err){
+                throw err;
+            }
+            else{
+                io.emit('post', post);
+            }
+        })
+    });
+});
+    
 
 app.listen(app.get('port'), function() {
     console.log("Listening on " + app.get('port'));
