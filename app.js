@@ -4,6 +4,11 @@ var logfmt = require("logfmt");
 var route = require("./route.js");
 var ECT = require('ect');
 var app = express();
+var ECT = require('ect');
+
+//ECT env
+app.engine('ect', ECT({ watch: true, root: __dirname + '/views', ext: '.ect' }).render);
+app.set('view engine', 'ect');
 
 // page controlloer
 var paths = ["/", "/login", "/timeline"];
