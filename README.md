@@ -12,3 +12,7 @@ If you want to create production version, please look into [here](https://devcen
 
 That's all!!
 
+## License
+
+MIT License. Please see the LICENSE file for details.
+
