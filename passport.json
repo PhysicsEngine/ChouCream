@@ -4,8 +4,8 @@
             "id" : "twitter",
             "callbackURL" : "/auth/twitter/callback",
             "loginURL" : "/auth/twitter",
-            "CONSUME_KEY" : "7miSoefgDpTsV6LhIUC21tpUe",
-            "CONSUME_SECRET" : "2hXJaiJplVQMWkToauflqM6ghVrjbSivV0m8o18K7O7NcozkUW"
+            "CONSUME_KEY" : "",
+            "CONSUME_SECRET" : ""
         },
         "Google" : {
             "id" : "google",
