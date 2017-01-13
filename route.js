@@ -1,10 +1,17 @@
 // route pages
 function index(req, res){
-    if(req.url == "/"){
-        path = "./controllers/timeline";
+    // authenticated user
+    if(req.user){
+        if(req.url == "/"){
+            path = "./controllers/timeline";
+        }
+        else{
+            path = "./controllers/" + req.url;
+        }
     }
+    // authenticated user
     else{
-        path = "./controllers/" + req.url;
+        path = "./controllers/timeline"
     }
     var controller = require(path + "/executer.js");
     controller.execute(req, res);
